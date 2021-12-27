@@ -18,19 +18,19 @@
 
 #define _WIN32_IE 0x0500 // for Shell_NotifyIcon version
 
-#include "launch.h"
+//#include "launch.h"
 #include <windows.h>
 #include "resource.h"
 #include <ctime>
 
 
-__declspec(dllimport) void InstallHook();
-__declspec(dllimport) void RemoveHook();
-__declspec(dllimport) void LoadOptions();
-__declspec(dllimport) bool IsEnabled();
-__declspec(dllimport) bool ShouldShowInNotificationArea();
-__declspec(dllimport) void ReHook();
-__declspec(dllimport) void CheckForUpdate();
+void InstallHook();
+void RemoveHook();
+void LoadOptions();
+//bool IsEnabled();
+bool ShouldShowInNotificationArea();
+void ReHook();
+//void CheckForUpdate();
 
 namespace {
 
@@ -59,11 +59,11 @@ namespace {
     }
 
     void runConfigure() {
-        LaunchProgRelative(L"tcconfig.exe");
+      //LaunchProgRelative(L"tcconfig.exe");
     }
 
     void showHelp() {
-        LaunchLocalHtml(L"docs\\help.html");
+      //LaunchLocalHtml(L"docs\\help.html");
     }
 
     void refreshIconState(HWND hwnd, bool justDelete=false) {
@@ -76,7 +76,7 @@ namespace {
 
         Shell_NotifyIcon(NIM_DELETE, &nid);
 
-        if (!justDelete && ShouldShowInNotificationArea()) {
+        if (!justDelete ) {
             // add the item & set version
             nid.uFlags = NIF_MESSAGE;
             nid.uCallbackMessage = taskbarNotificationMsg;
@@ -86,11 +86,11 @@ namespace {
 
             // set the icon
             nid.uFlags = NIF_ICON | NIF_TIP;
-            nid.hIcon = LoadIcon(Hinst, IsEnabled() 
+            nid.hIcon = LoadIcon(Hinst, true 
                 ? MAKEINTRESOURCE(IDI_ICON1) 
                 : MAKEINTRESOURCE(IDI_ICON2));
             lstrcpy(nid.szTip, L"TouchCursor"); 
-            if (!IsEnabled()) lstrcat(nid.szTip, L" (Disabled)");
+            //if (!IsEnabled()) lstrcat(nid.szTip, L" (Disabled)");
             Shell_NotifyIcon(NIM_MODIFY, &nid);
         }
     }
@@ -193,13 +193,13 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR comman
 
     InstallHook();
     refreshIconState(w);
-    SetTimer(w, 1, 500, 0);
+    //SetTimer(w, 1, 500, 0);
 
-    CheckForUpdate();
+    //CheckForUpdate();
 
     MSG msg;
     int ret = 0;
-    while(ret = GetMessage(&msg, 0, 0, 0) > 0) {
+    while( ( ret = GetMessage(&msg, 0, 0, 0) ) > 0  ) {
         if (!IsDialogMessage(w, &msg)) {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
