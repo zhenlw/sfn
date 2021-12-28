@@ -1,10 +1,10 @@
 # flags
-CXXFLAGS = -O2 -std=c++14 -D_UNICODE -DUBICODE -municode -Wall
+CXXFLAGS = -O2 -std=c++14 -D_UNICODE -DUBICODE -D_NDEBUG -D_WINDOWS -municode -Wall
 LDFLAGS = -static -s -Wl,--subsystem,windows
 
 # targets defs
 EXE = sfn.exe
-OBJS = out/main.o out/sfn_core.o out/res.o
+OBJS = out/main.o out/sfn_core.o out/sfn_config.o out/res.o
 
 # toolchains
 CXX = x86_64-w64-mingw32-g++

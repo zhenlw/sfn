@@ -26,7 +26,6 @@
 
 void InstallHook();
 void RemoveHook();
-void LoadOptions();
 //bool IsEnabled();
 bool ShouldShowInNotificationArea();
 void ReHook();
@@ -106,9 +105,9 @@ INT_PTR CALLBACK DialogProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
             break;
         }
 
-        case loadOptionsMsg:
+        /*case loadOptionsMsg:
             LoadOptions();
-            break;
+            break;*/
 
         case taskbarNotificationMsg: 
             // taskbar event
@@ -178,9 +177,6 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR comman
         if (hwnd) {
             if (quit) {
                 PostMessage(hwnd, ID_POPUP_EXIT, 0, 0);
-            }
-            else {
-                PostMessage(hwnd, loadOptionsMsg, 0, 0);
             }
         }
         return 0;
