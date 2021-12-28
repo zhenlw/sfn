@@ -38,7 +38,7 @@ namespace {
 
     const int taskbarNotificationMsg = WM_USER;
     const int loadOptionsMsg = WM_USER + 1;
-    const wchar_t* const windowTitle = L"TouchCursor";
+    const wchar_t* const windowTitle = L"sfn";
 
 
     DWORD showMenu(HWND hwnd) { 
@@ -89,7 +89,7 @@ namespace {
             nid.hIcon = LoadIcon(Hinst, true 
                 ? MAKEINTRESOURCE(IDI_ICON1) 
                 : MAKEINTRESOURCE(IDI_ICON2));
-            lstrcpy(nid.szTip, L"TouchCursor"); 
+            lstrcpy(nid.szTip, L"sfn"); 
             //if (!IsEnabled()) lstrcat(nid.szTip, L" (Disabled)");
             Shell_NotifyIcon(NIM_MODIFY, &nid);
         }

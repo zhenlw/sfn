@@ -7,9 +7,7 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#define APSTUDIO_HIDDEN_SYMBOLS
-#include "windows.h"
-#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "afxres.h"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -18,10 +16,8 @@
 // Neutral resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
 LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1252)
-#endif //_WIN32
+#pragma code_page(936)
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -31,7 +27,7 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 IDD_DIALOG1 DIALOGEX 0, 0, 169, 103
 STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "TouchCursor"
+CAPTION "sfn"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
 END
@@ -43,7 +39,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_DIALOG1, DIALOG
     BEGIN
@@ -64,19 +60,21 @@ END
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_ICON1               ICON                    "icon.ico"
+
 IDI_ICON2               ICON                    "disabled.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
 //
 
-IDR_MENU1 MENU 
+IDR_MENU1 MENU
 BEGIN
     POPUP "popup"
     BEGIN
-        MENUITEM "&Configure...",               ID_POPUP_CONFIGURE
-        MENUITEM "&Help...",                    ID_POPUP_HELP
+        MENUITEM "&Configure...",               ID_POPUP_CONFIGURE, INACTIVE
+        MENUITEM "&Help...",                    ID_POPUP_HELP, INACTIVE
         MENUITEM SEPARATOR
         MENUITEM "E&xit",                       ID_POPUP_EXIT
     END
@@ -89,8 +87,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,7,1,10
- PRODUCTVERSION 1,7,1,10
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -105,14 +103,13 @@ BEGIN
     BEGIN
         BLOCK "000004b0"
         BEGIN
-            VALUE "FileDescription", "TouchCursor Application"
-            VALUE "FileVersion", "1, 7, 1, 10"
-            VALUE "InternalName", "TouchCursor"
-            VALUE "LegalCopyright", "Copyright (C) 2010 Martin Stone"
-            VALUE "OriginalFilename", "touchcursor.exe"
-            VALUE "ProductName", "TouchCursor"
-            VALUE "ProductVersion", "1, 7, 1, 10"
-            VALUE "Company", ""
+            VALUE "FileDescription", "A spcaeFn Application based on TouchCursor"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "sfn"
+            VALUE "LegalCopyright", "Copyright (C) 2021 Liwei Zhen"
+            VALUE "OriginalFilename", "sfn.exe"
+            VALUE "ProductName", "sfn"
+            VALUE "ProductVersion", "1.0.0.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -128,18 +125,28 @@ END
 //
 
 1                       RT_MANIFEST             "manifest.xml"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_DIALOG1 AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -166,7 +173,7 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
