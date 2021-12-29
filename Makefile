@@ -1,6 +1,6 @@
 # flags
 CXXFLAGS = -O2 -std=c++14 -D_UNICODE -DUBICODE -D_NDEBUG -D_WINDOWS -municode -Wall
-LDFLAGS = -static -s -Wl,--subsystem,windows
+LDFLAGS = -municode -static -s -Wl,--subsystem,windows
 
 # targets defs
 EXE = sfn.exe

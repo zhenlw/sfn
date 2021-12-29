@@ -1,5 +1,5 @@
+#include "framework.h"
 #include <iostream>
-#include <windows.h>
 #include "sfn.h"
 
 DWORD g_act_vk = VK_SPACE;
